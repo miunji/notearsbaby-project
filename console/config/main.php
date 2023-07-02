@@ -1,5 +1,8 @@
 <?php
 
+use yii\log\FileTarget;
+use webvimark\modules\UserManagement\UserManagementModule;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -16,17 +19,17 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'controllerMap' => [
-        'fixture' => [
-            'class' => \yii\console\controllers\FixtureController::class,
-            'namespace' => 'common\fixtures',
-          ],
+    'modules'=>[
+        'user-management' => [
+            'class' => UserManagementModule::class,
+            'controllerNamespace'=>'vendor\webvimark\modules\UserManagement\controllers',
+        ],
     ],
     'components' => [
         'log' => [
             'targets' => [
                 [
-                    'class' => \yii\log\FileTarget::class,
+                    'class' => FileTarget::class,
                     'levels' => ['error', 'warning'],
                 ],
             ],

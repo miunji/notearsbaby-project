@@ -2,11 +2,13 @@
 
 namespace backend\assets;
 
+use dmstr\web\AdminLteAsset;
+use yii\bootstrap\BootstrapAsset;
 use yii\web\AssetBundle;
+use yii\web\YiiAsset;
 
 /**
- * Main backend application asset bundle.
- */
+*Main backend application asset bundle.*/
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
@@ -17,7 +19,6 @@ class AppAsset extends AssetBundle
     public $js = [
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap5\BootstrapAsset',
+        AdminLteAsset::class,
     ];
 }
